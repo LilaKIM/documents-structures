@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE livres [<!ELEMENT livres (livre)+>
+<!ELEMENT livre (auteur, titre)>
+<!ATTLIST livre isbn CDATA #REQUIRED
+                genre CDATA #REQUIRED>
+<!ELEMENT auteur (prenom, nomDeFamille)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT nomDeFamille (#PCDATA)>
+<!ENTITY name "Emily">
+<!ELEMENT titre (#PCDATA)>
+]>
+<livres>
+    <livre isbn="00000" genre="science-fiction">
+        <auteur nationalite="zho">
+            <prenom>Cixin</prenom>
+            <nomDeFamille>Liu</nomDeFamille>
+        </auteur>
+        <titre>The Three-Body problem</titre>
+    </livre>
+    <livre isbn="00001" genre="tragédie gothique">
+        <auteur nationalite="eng">
+            <prenom>&name;</prenom>
+            <nomDeFamille>Brontë</nomDeFamille>
+        </auteur>
+        <titre>Wuthering Heights</titre>
+    </livre>
+</livres>
