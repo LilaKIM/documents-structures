@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="factbook-minimal.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<mondial>
+    <continent id="c1" name="Europe"/>
+    <continent id="c2" name="Asie"/>
+    <continent id="c3" name="Amérique"/>
+    <country id="p1" name="France" gdp_agri="" gdp_total="9">
+        <name>France</name>
+        <city longitude="" latitude="">
+            <name>Paris</name>
+            <population xmlns="inalco:documents-structures:ns">11111111111</population>
+            <located_at/>
+        </city>
+    </country>
+    <country id="p2" name="Corée du Sud" gdp_agri="" gdp_total="9">
+        <name>Corée du Sud</name>
+        <city longitude="" latitude="">
+            <name>Séoul</name>
+            <population xmlns="inalco:documents-structures:ns">22222222222</population>
+        </city>
+        <city longitude="" latitude="">
+            <name>Busan</name>
+            <population xmlns="inalco:documents-structures:ns">333333333333</population>
+            <located_at/>
+        </city>
+    </country>
+    <country id="p3" name="Espagne" gdp_agri="" gdp_total="9">
+        <name>Espagne</name>
+        <city longitude="" latitude="">
+            <name>Madrid</name>
+            <population xmlns="inalco:documents-structures:ns">11111111111</population>
+        </city>
+    </country>
+</mondial>
