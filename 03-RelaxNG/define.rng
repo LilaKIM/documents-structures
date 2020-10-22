@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar 
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <ref name="root"/>
+    </start>
+    
+    
+    <define name="root">
+        <element name="bibliotheque">
+            <oneOrMore><ref name="etagere"/></oneOrMore>
+        </element>
+    </define>
+    
+    
+    <define name="etagere">
+        <element name="etagere">
+            <attribute name="type"><data type="string"/></attribute>
+            <optional><attribute name="poussiere"><data type="boolean"/></attribute></optional>
+            <zeroOrMore>
+                <ref name="livre"/>
+            </zeroOrMore>
+            <optional>
+                <ref name="magazine"/>
+            </optional>
+        </element>
+    </define>
+    
+    
+    <define name="livre">
+        <element name="livre">
+            <attribute name="isbn"><data type="int"/></attribute>
+            <attribute name="prix"><data type="float"/></attribute>
+            <ref name="titre"/>
+            <ref name="auteur"/>
+        </element>
+    </define>
+    
+    
+    <define name="titre">
+        <element name="titre">
+            <data type="string"/>
+        </element>
+    </define>
+    
+    
+    <define name="auteur" combine="choice">
+        <element name="auteur">
+            <attribute name="nom"><data type="string"/></attribute>
+            <attribute name="prenom"><data type="string"/></attribute>
+        </element>
+    </define>
+    
+    <define name="auteur" combine="choice">
+        <interleave>
+            <element name="nom"><data type="string"/></element>
+            <element name="prenom"><data type="string"/></element>
+        </interleave>    
+    </define>
+
+    
+    <define name="magazine">
+        <element name="magazine">
+            <attribute name="isbn"><data type="int"/></attribute>
+            <attribute name="prix"><data type="float"/></attribute>
+        </element>
+    </define>
+</grammar>

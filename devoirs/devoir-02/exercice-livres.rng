@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element name="bibliotheque" xmlns="http://relaxng.org/ns/structure/1.0">
+<element name="bibliotheque" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
     <oneOrMore>
         <element name="etagere">
-            <attribute name="type"/>
-            <optional><attribute name="prix"/></optional>
-            <optional><attribute name="poussiere"/></optional>
-            <optional>
-                <oneOrMore>
-                    <element name="livre">
-                        <attribute name="isbn"/>
-                        <attribute name="prix"/>
-                        <element name="titre"><text/></element>
-                        <element name="auteur">
-                            <optional>
-                                <attribute name="nom"/>
-                                <attribute name="prenom"/>
-                            </optional>
-                            <optional>
-                                <interleave>
-                                    <element name="nom"><text/></element>
-                                    <element name="prenom"><text/></element>
-                                </interleave>
-                            </optional>
-                        </element>
+            <attribute name="type"><data type="string"/></attribute>
+            <optional><attribute name="poussiere"><data type="boolean"/></attribute></optional>
+            <zeroOrMore>
+                <element name="livre">
+                    <attribute name="isbn"><data type="int"/></attribute>
+                    <attribute name="prix"><data type="float"/></attribute>
+                    <element name="titre"><text/></element>
+                    <element name="auteur">
+                        <optional>
+                            <attribute name="nom"><data type="string"/></attribute>
+                            <attribute name="prenom"><data type="string"/></attribute>
+                        </optional>
+                        <optional>
+                            <interleave>
+                                <element name="nom"><text/></element>
+                                <element name="prenom"><text/></element>
+                            </interleave>
+                        </optional>
                     </element>
-                </oneOrMore>
-            </optional>
+                </element>
+            </zeroOrMore>
             <optional>
                 <element name="magazine">
-                    <attribute name="isbn"/>
-                    <attribute name="prix"/>
+                    <attribute name="isbn"><data type="int"/></attribute>
+                    <attribute name="prix"><data type="float"/></attribute>
                 </element>
             </optional>
         </element>

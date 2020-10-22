@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-model href="exercice-livres.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="exercice-livres-refait.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <bibliotheque>
     <etagere type="sf">
         <livre isbn="001" prix="15.99">
@@ -18,7 +18,7 @@
 
     </etagere>
     <etagere type="gothique" poussiere="true">
-        <livre isbn="003" prix="5.58">
+        <livre isbn="003-AX3X-ab" prix="5.58">
             <titre>Le Château d'Otrante</titre>
             <auteur>
                 <prenom>Horace</prenom>

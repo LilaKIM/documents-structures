@@ -7,7 +7,7 @@
             <optional><attribute name="poussiere"/></optional>
             <optional>
                 <oneOrMore>
-                    <element name="livre">
+                    <element name="livre" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
                         <attribute name="isbn"/>
                         <attribute name="prix"/>
                         <element name="titre"><text/></element>
