@@ -1,0 +1,122 @@
+- for return -
+
+1. Renvoyer le nom de chaque élément dans le document
+
+for $i in (//*/name())
+return $i
+
+2. Multiplier le prix du "gazole" par 2,5. (On considère que @valeur est le prix)
+
+1) for $i in /pdv_liste/pdv/prix[@nom="Gazole"]
+return $i/@valeur *2.5
+
+2) for $i in /pdv_liste/pdv/prix
+return 
+if ($i/@nom="Gazole") then $i/@valeur *2.5
+else ()
+
+3. Renvoyer une séquence contenant la concaténation de l'adresse et de la ville pour chaque point de vente, séparée par un espace. (Ex : "ROUTE NATIONALE SAINT-DENIS-LèS-BOURG")
+
+for $i in /pdv_liste/pdv
+return concat($i/adresse," ",$i/ville)
+
+
+- if () then else -
+
+1. Créer une séquence de 1 à 100 et renvoyer tous les multiples de 3.
+
+1) (1 to 100)[. mod 3 = 0]
+
+2) for $i in (1 to 100)
+return 
+if ($i mod 3 = 0) then $i
+else ()
+
+2. Renvoyer les id des points de vente ne contenant que le serve Vente de gaz domestique sinon, renvoyer l'adresse.
+
+for $i in //pdv 
+return 
+if (count($i/services/service) = 1 and $i/services/service = "Vente de gaz domestique") then $i/@id 
+else $i/adresse
+
+
+3. Renvoyer l'adresse en majuscule si elle contient le mot "Avenue" sinon ne rien renvoyer.
+
+for $i in /pdv_liste/pdv/adresse
+return 
+if (contains($i/text(), "Avenue")) then upper-case($i)
+else ()
+
+
+- union -
+
+1. Renvoyer l'union de tous les services.
+
+/pdv_liste/pdv/services/service union /pdv_liste/pdv/services/service
+
+2. Écrire une requête qui sélectionne les points de vente qui vendent du SP95 et du SP98. Mais pas forcément en même temps.
+
+/pdv_liste/pdv[prix/@nom="SP95"] union /pdv_liste/pdv[prix/@nom="SP98"]
+
+- intersect -
+1. Écrire une requête qui sélectionne les points de vente qui ont été en rupture et qui ne sont pas ouverts les dimanches.
+
+/pdv_liste/pdv[rupture/@*] intersect /pdv_liste/pdv[ouverture/@saufjour="Dimanche"]
+
+- except -
+1. Écrire une requête qui renvoie tous les points de vente qui ne sont pas sur la route nationale.
+
+/pdv_liste/pdv except /pdv_liste/pdv[contains(adresse/text(), "ROUTE NATIONALE")]
+
+- some -
+1. Existe-t-il un point de vente n'ayant pas d'automate à carte bancaire ? Écrire la requête.
+
+some $i in /pdv_liste/pdv/services/service satisfies not(contains($i, "Automate CB"))
+
+- every -
+1. Est-ce-que chaque point de vente est ouvert 7 jours sur 7 ? Écrire la requête
+
+every $i in /pdv_liste/pdv satisfies $i/ouverture/@saufjour=""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

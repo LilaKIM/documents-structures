@@ -7,6 +7,8 @@
 3. Supprimer la deuxième machine de cette séquence
 (//juicer[@type="centrifugal"])[not(position()=2)]
 
+corrigé -> remove((//juicer[@type="centrifugal"]), 2)
+
 4. Créer une séquence du nom des machines, la séquence doit contenir des chaînes de caractères
 //juicer/name/string()
 
@@ -24,3 +26,5 @@ index-of((//juicer/name), 'Juiceman Jr.')
 
 9. Afficher tous les multiples de 5 de cette séquence
 for $i in (5 to 25) return $i*5
+
+corrigé -> (5 to 25)[. mod 5 = 0]
