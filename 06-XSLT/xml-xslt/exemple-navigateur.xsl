@@ -4,7 +4,7 @@
 
     <xsl:template match="racine">
         <html>
-            <xsl:apply-templates/>
+            <xsl:apply-templates select="titre"/>
         </html>
     </xsl:template>
 
@@ -12,6 +12,7 @@
         <h1>
             <xsl:value-of select="."/>
         </h1>
+        <xsl:apply-templates/>
     </xsl:template>
 
 

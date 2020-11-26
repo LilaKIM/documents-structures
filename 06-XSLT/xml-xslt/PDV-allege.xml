@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<pdv_liste>
+<pdv_liste xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="pdv-allege.xsl">
   <pdv id="1000001" latitude="4620114" longitude="519791" cp="01000" pop="R">
     <adresse>ROUTE NATIONALE</adresse>
     <ville>SAINT-DENIS-LèS-BOURG</ville>
